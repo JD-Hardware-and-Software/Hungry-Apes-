@@ -1,0 +1,51 @@
+import java.util.Scanner;
+
+public class ChimpanzeeProgram {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        // Prompt the user for the number of chimpanzees
+        System.out.print("Enter the number of chimpanzees: ");
+        int numChimpanzees = input.nextInt();
+        
+        // Create an array to store information about each chimpanzee
+        String[] names = new String[numChimpanzees];
+        int[] ages = new int[numChimpanzees];
+        boolean[] isMale = new boolean[numChimpanzees];
+        boolean[] isHungry = new boolean[numChimpanzees];
+        
+        // Prompt the user for information about each chimpanzee
+        for (int i = 0; i < numChimpanzees; i++) {
+            System.out.println("Enter information about chimpanzee " + (i+1) + ":");
+            System.out.print("Name: ");
+            names[i] = input.next();
+            System.out.print("Age: ");
+            ages[i] = input.nextInt();
+            System.out.print("Is male (true/false): ");
+            isMale[i] = input.nextBoolean();
+            System.out.print("Is hungry (true/false): ");
+            isHungry[i] = input.nextBoolean();
+        }
+        
+        // Display a summary of the information about each chimpanzee
+        System.out.println("Summary of chimpanzee information:");
+        for (int i = 0; i < numChimpanzees; i++) {
+            System.out.println(names[i] + " is a " + ages[i] + "-year-old " + (isMale[i] ? "male" : "female") + " chimpanzee who is " + (isHungry[i] ? "hungry" : "not hungry") + ".");
+        }
+        
+        // Feed the hungry chimpanzees
+        System.out.println("Feeding hungry chimpanzees...");
+        for (int i = 0; i < numChimpanzees; i++) {
+            if (isHungry[i]) {
+                System.out.println(names[i] + " is eating...");
+                isHungry[i] = false;
+            }
+        }
+        
+        // Display a summary of the information about each chimpanzee after feeding
+        System.out.println("Summary of chimpanzee information after feeding:");
+        for (int i = 0; i < numChimpanzees; i++) {
+            System.out.println(names[i] + " is a " + ages[i] + "-year-old " + (isMale[i] ? "male" : "female") + " chimpanzee who is " + (isHungry[i] ? "hungry" : "not hungry") + ".");
+        }
+    }
+}
